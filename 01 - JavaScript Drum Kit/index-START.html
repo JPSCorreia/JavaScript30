@@ -57,9 +57,41 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
+
+
+
+
+
 <script>
 
+  // Add Event Listener to pressing a keyboard key down:
+  window.addEventListener('keydown', (e) => {
+
+    // Get elements with css property data-key = e.keyCode.
+    const audioElement = document.querySelector(`audio[data-key='${e.keyCode}']`);
+    const keyDivElement = document.querySelector(`div[data-key='${e.keyCode}']`);
+
+    // If the element doesn't exist, end function.
+    if (!audioElement) return;
+
+    // Rewind to the start and play the audio file selected with the querySelector.
+    audioElement.currentTime = 0;
+    audioElement.play();
+
+    // Add a class='playing' to the div element selected and remove it after 100ms.
+    keyDivElement.classList.add('playing');
+    setTimeout( () => { 
+      keyDivElement.classList.remove('playing');
+    }, 70);
+
+  })
+
 </script>
+
+
+
+
+
 
 
 </body>
