@@ -62,13 +62,69 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      /*
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0, 2, 0.2, 1);
+      */
+    }
+
+    .second-hand {
+      height: 3px;
+      background-color: red;
+    }
+
+    .hour-hand {
+      height: 6px;
+
     }
 
   </style>
 
+
+
+
   <script>
+
+    // Select div elements with classes for hours, minutes and seconds pointer.
+    const secondsPointer = document.querySelector('.second-hand')
+    const minutesPointer = document.querySelector('.min-hand')
+    const hoursPointer = document.querySelector('.hour-hand')
+    
+
+
+    setInterval(() => {
+
+      // Define hours, minutes and seconds every 1000ms.
+      const date = new Date();
+      const dateSeconds = date.getSeconds();
+      const dateSecondsInDegrees = (dateSeconds/60 * 360) + 90;
+      const dateMinutes = date.getMinutes();
+      const dateMinutesInDegrees = (dateMinutes/60 * 360) + 90;
+      const dateHours = date.getHours();
+      const dateHoursInDegress = (dateHours/12 * 360) + 90;
+
+      // Change the transform css property of each pointer elements every 1000ms.
+      secondsPointer.style.transform = 'rotate('+dateSecondsInDegrees+'deg)'
+      minutesPointer.style.transform = 'rotate('+dateMinutesInDegrees+'deg)'
+      hoursPointer.style.transform = 'rotate('+dateHoursInDegress+'deg)'
+
+    }, 1000) 
+
+
+
+
+
 
 
   </script>
+
+
+
+
+
+
+
 </body>
 </html>
