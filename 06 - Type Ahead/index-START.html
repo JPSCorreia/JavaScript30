@@ -61,7 +61,7 @@ function displayMatches () {
 
 
   const matchArray = findMatches(this.value, cities)
-  let html = matchArray.map(place => {
+  const html = matchArray.map(place => {
 
     // g = global and i = case insensitive for the RegExp
     const regEx = new RegExp(this.value, 'gi');
@@ -79,10 +79,14 @@ function displayMatches () {
   }).join('');
 
   // Clear suggestions when search box is empty.
-  if (this.value.length == 0) {
-    html = ''
+  if (this.value.length > 0) {
+    suggestions.innerHTML = html;
+  } else {
+    suggestions.innerHTML = '';
   }
-  suggestions.innerHTML = html;
+  
+
+  
 
 }
 
