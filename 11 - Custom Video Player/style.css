@@ -94,7 +94,7 @@ body {
   height: 5px;
   transition: height 0.3s;
   background: rgba(0,0,0,0.5);
-  cursor: ew-resize;
+  cursor: pointer;
 }
 
 .progress__filled {
@@ -159,4 +159,34 @@ input[type=range]::-moz-range-thumb {
   border-radius: 50px;
   background: #ffc600;
   cursor: pointer;
+}
+
+.mute__button {
+  font-family: 'EmojiSymbols'
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
