@@ -6,7 +6,34 @@
   <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+<div>
+  <h1 id = 'secretCode'>Wrong Code.</h1>
+</div>
+
 <script>
+
+  const pressed = [];
+  const secretCode = 'wesbos'
+
+  const winnerOrNot = document.getElementById('secretCode');
+
+  window.addEventListener('keyup', (event) => {
+    pressed.push(event.key)
+
+    // array max length is always the length of secretCode variable:
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length)
+
+    // Find if Key combination matches secretCode:
+    if (pressed.join('').includes(secretCode)) {
+      winnerOrNot.innerHTML = 'WINNER!'
+    } else {
+      winnerOrNot.innerHTML = 'Wrong Code.'
+    }
+
+  })
+
 </script>
+
+
 </body>
 </html>
